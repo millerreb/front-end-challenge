@@ -18,6 +18,7 @@ const ProductDetail = () => {
 				<img src={One} className="product-image" alt="main" />
 				<img src={One} className="product-image" alt="main" />
 			</div>
+			<ProductDescription />
 			<OrderingInfo />
 		</div>
 		
