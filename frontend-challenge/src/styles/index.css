@@ -1,0 +1,8 @@
+@font-face {
+	font-family: Graphik;
+	src: local('Graphik-Medium'), url('./fonts/Graphik-Medium.woff') format('woff');
+}
+
+body, h1, h2 {
+	font-family: 'Graphik-Medium', 'Segoe UI', Tahoma, Verdana, sans-serif
+}
