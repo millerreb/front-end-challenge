@@ -6,7 +6,8 @@ import { useState, useEffect, useRef } from 'react';
 const OrderingInfo = () => {
 	const [qty, setQty] = useState(1);
 	const [color, setColor] = useState("black");
-	
+	const colorBlack = useRef(null);
+	const colorBeige = useRef(null);
 
 	const increment = () => setQty(prevQty => prevQty + 1)
 	const decrement = () => {
@@ -14,7 +15,16 @@ const OrderingInfo = () => {
 	};
 	
 	const toggleColor = () => {
-		if (color === 'black') console.log('hi')
+		if (color === 'black' && colorBeige.current) {
+			colorBeige.current.clicked = true;
+			colorBlack.current.clicked = false;
+			setColor("beige");
+		} 
+		if (color === "beige" && colorBlack.current) {
+			colorBlack.current.clicked = true;
+			colorBeige.current.clicked = false;
+			setColor("black");
+		}
 	}
 
 	return (
@@ -22,8 +32,8 @@ const OrderingInfo = () => {
 			<div id="price">$35.00</div>
 			<div className="btnGroup">
 					<button className="colorOption">color</button>
-					<button className="colorOption" id="black" onClick={toggleColor}>black</button>
-					<button className="colorOption" id="beige" onClick={toggleColor}>beige</button>
+					<button className="colorOption" id="black" ref={colorBlack} onClick={toggleColor}>black</button>
+					<button className="colorOption" id="beige" ref={colorBeige} onClick={toggleColor}>beige</button>
 				</div>
 				<div className="orderQty">
 					<button type="button" onClick={decrement}>-</button>

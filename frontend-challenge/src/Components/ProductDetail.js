@@ -15,11 +15,11 @@ const ProductDetail = () => {
 					<ProductDescription />
 					<div className="product-container">
 						<img src={Two} className="product-image" alt="main" />
-						<img src={One} className="product-image" alt="main" />
+						{/* <img src={One} className="product-image" alt="main" />
 						<img src={Three} className="product-image" alt="main" />
 						<img src={Four} className="product-image" alt="main" />
 						<img src={Five} className="product-image" alt="main" />
-						<img src={Six} className="product-image" alt="main" />
+						<img src={Six} className="product-image" alt="main" /> */}
 					</div>
 					<OrderingInfo />
 			</div>
