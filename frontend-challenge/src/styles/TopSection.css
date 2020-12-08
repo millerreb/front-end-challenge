@@ -1,4 +1,7 @@
-
+body, button {
+	font-size: .85em;
+	letter-spacing: .08em;
+}
 .topSection {
 	display: flex;
 	flex-direction: row;
@@ -14,7 +17,6 @@
 .product-container {
 	border: 1px solid blue;
 	max-width: 50%;
-	flex-grow: 2;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -23,7 +25,7 @@
 }
 
 .product-container img {
-	max-height: 80vh;
+	height: 80vh;
 }
 
 .orderQty {
@@ -61,6 +63,7 @@
 #quantity {
 	width: 90%;
 	text-align: center;
+	padding: 4px 0px;
 	border: 1px solid black;
 }
 
@@ -77,14 +80,24 @@
 	width: 33.33%;
 	border: 1px black solid;
 	padding: 3px;
+	font: inherit;
+	font-size: .9em;
 }
-
+#black {
+	background-color: black;
+	color: white;
+	outline: none;
+}
+#beige {
+	background-color: #f0bf6b;
+	outline: none;
+}
 #cart {
-
 	width: 100%;
 	border-radius: 0px;
 	background-color: black;
 	color: white;
+	font: inherit;
 	border: .5px black solid;
 	border-radius: 0px;
 	padding: 5px;
@@ -117,18 +130,14 @@
 	flex-grow: 2.5;
 	flex-shrink: 1;
 	position: sticky;
-	
 	text-align: left;
 }
 .description p {
-	letter-spacing: .07em;
-	font-size: .9em;
-	line-height: 2.4em;
+	line-height: 2.1em;
 	hyphens: none;
 }
 .description h5 {
 	margin-top: 0px;
 	letter-spacing: .2em;
-	font-size: .9em;
 	line-height: 2.1em;
 }
