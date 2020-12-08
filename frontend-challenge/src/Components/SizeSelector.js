@@ -1,6 +1,6 @@
 import React from 'react';
 import icon from '../assets/chevron-down-solid.svg';
-import '../styles/App.css';
+import '../styles/TopSection.css';
 
 const SizeSelector = () => {
 
