@@ -130,7 +130,7 @@ body, button {
   margin-top: 5%;
   margin-bottom: 5%;
 }
-.sizeSelector {
+.sizeSelector-closed {
   display: flex;
   width: 100%;
   align-items: center;

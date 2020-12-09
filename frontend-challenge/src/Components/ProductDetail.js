@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ProductDescription from './ProductDescription';
 import OrderingInfo from './OrderingInfo';
 import ShopGrid from './ShopGrid';
@@ -10,19 +10,28 @@ import './../styles/TopSection.css';
 //react map all files in a folder - webpack alias to import
 const ProductDetail = (props) => {
 
-	const imgRef = useRef(null);
-
 	const [zoomed, setZoomed] = useState(false);
-	const [current, setCurrent] = useState(null);
-	
-	const zoom = (e) => {
-		console.log(productImages);
-    setZoomed(!zoomed);
-		setCurrent(e.target);
-		
-	}
+	const [current, setCurrent] = useState();
 	
 	const productImages = Object.values(props.images);
+
+
+
+	const zoom = (e) => {
+    setZoomed(!zoomed);
+		setCurrent(e.target);
+	}
+	
+	
+	// useEffect(() => {
+	// 	if (zoomed) {
+	// 		productImages.forEach(el=> {
+	// 			if (!el === current) {
+					
+	// 			}
+	// 		})
+	// 	}
+	// })
 	const imgMap = productImages.map((img, i) => {
 		return <img 
 		src={img}
@@ -36,9 +45,9 @@ const ProductDetail = (props) => {
 			return (
 					<div>
 						<div className="topSection">
-						<div className="product-container">{imgMap}</div>
+							<div className="product-container">{!zoomed && imgMap}</div>
 							{!zoomed && <ProductDescription />}
-							{!zoomed && <OrderingInfo zoomed={zoomed} current={current}/>}
+							{!zoomed && <OrderingInfo />}
 					</div>
 					<div className="bottomSection">
 						{/* {!zoomed && <ShopGrid />} */}
