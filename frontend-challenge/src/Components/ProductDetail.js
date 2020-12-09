@@ -4,6 +4,7 @@ import OrderingInfo from './OrderingInfo';
 import ShopGrid from './ShopGrid';
 import { One, Two, Three, Four, Five, Six } from './ImageImport';
 
+
 import './../styles/TopSection.css';
 
 //react map all files in a folder - webpack alias to import
@@ -14,25 +15,28 @@ const ProductDetail = (props) => {
 	const [zoomed, setZoomed] = useState(false);
 	const [current, setCurrent] = useState(null);
 	
-	const zoom = () => {
+	const zoom = (e) => {
+		console.log(productImages);
     setZoomed(!zoomed);
-    console.log(imgRef.current)
-  }
-
-
+		setCurrent(e.target);
+		
+	}
+	
+	const productImages = Object.values(props.images);
+	const imgMap = productImages.map((img, i) => {
+		return <img 
+		src={img}
+		key={`product-view-${i+1}`}
+		className={`product-image${zoomed ? "-zoomed" : ""}`} 
+		alt={`full-product-view-${i+1}`}
+		onClick={zoom} 
+		/>
+	})
 
 			return (
 					<div>
 						<div className="topSection">
-						<div className="product-container">
-							<img src={Two} className={`product-image${zoomed ? "-zoomed" : ""}`} ref={imgRef} alt="main-product-2" key="2" onClick={zoom}></img>
-							<img src={One} alt="main-product-1" key="1" onClick={zoom}></img>
-							<img src={Three} alt="main-product-3" key="3"></img>
-							<img src={Four} alt="main-product-4" key="4"></img>
-							<img src={Five} alt="main-product-5" key="5"></img>
-							<img src={Two} alt="main-product-6" key="6"></img>
-							{/* <img src={Two} key="productImageOne" className={`product-image${zoomed ? "-zoomed" : ""}`} alt="product-view-1"/> */}
-						</div>
+						<div className="product-container">{imgMap}</div>
 							{!zoomed && <ProductDescription />}
 							{!zoomed && <OrderingInfo zoomed={zoomed} current={current}/>}
 					</div>
