@@ -11,17 +11,20 @@
   justify-content: center;
 }
 .productGrid .row1, .row2, .row3 {
-  width: 50%;
+  width: 60%;
   border: 1px green solid;
   margin-bottom: 2vh;
+  padding: 2vh;
 }
 
 .productGrid img {
   max-height: 500px;
   max-width: 45%;
-  margin: 4vh;
+  margin: 3vh;
 }
-
+.productGrid .vertical {
+  max-width: 30%;
+}
 .productGrid .row1 {
   display: flex;
   flex-direction: row-reverse;

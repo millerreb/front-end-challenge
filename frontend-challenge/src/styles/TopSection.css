@@ -8,36 +8,45 @@ body, button {
   justify-content: space-between;
   width: 100%;
   border: 1px solid red;
-  z-index: 1;
+  background-color: #faf8f8;
 }
 .product-container {
   background-color: #faf8f8;
-  border: 1px solid blue;
   /* width: 100%; */
+  border: 1px solid blue;
   max-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
 }
+
 .product-container.zoomed {
   width: 100%;
+  justify-self: center;
   max-height: fit-content;
 }
+.product-container::-webkit-scrollbar {
+  display: none;
+};
+
 .product-image {
   top: 0;
+  max-height: 80vh;
   cursor: zoom-in;
 }
 .product-image-zoomed {
   cursor: zoom-out;
-  text-align: center;
-  width: 80%;
+  width: 100%;
   max-height: fit-content;
 }
 
 .description {
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   width: 20%;
+  min-width: 200px;
   top: 50%;
   padding-left: 5em;
   text-align: left;
@@ -55,16 +64,16 @@ body, button {
 
 .orderingInfo {
   width: 20%;
+  min-width: 300px;
   top: 50%;
   padding-right: 5em;
   /* float: right; */
-  z-index: 3;
+  /* z-index: 3; */
   /* display: flex;
   flex-direction: column;
   justify-content: space-evenly; */
-  border: 1px solid green;
+  /* border: 1px solid green; */
   
-
 }
 
 .orderQty {
@@ -74,6 +83,12 @@ body, button {
   background-color: #faf8f8;
   margin-top: 5%;
   margin-bottom: 5%;
+}
+.orderQty button {
+  font-family: inherit;
+  background-color: inherit;
+  border: 1px black solid;
+  width: 7.5%;
 }
 
 .orderingInfo p {
@@ -87,10 +102,12 @@ body, button {
 }
 
 #quantity {
-  width: 90%;
+  width: 85%;
   text-align: center;
   padding: 4px 0px;
   border: 1px solid black;
+  border-left: none;
+  border-right: none;
 }
 
 .btnGroup {

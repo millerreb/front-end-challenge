@@ -8,7 +8,7 @@ const ShopGrid = () => {
 	return (
 	<div className="productGrid">
 		<div className="row1">
-		<img alt="woman in orange background wearing hiphuggers" key="product-img-7" src={Seven}></img>
+		<img className="vertical" alt="woman in orange background wearing hiphuggers" key="product-img-7" src={Seven}></img>
 			<img alt="two people holding each other in hiphuggers" key="product-img-8" src={Eight}></img>
 		</div>
 		<div className="row2">
@@ -16,7 +16,7 @@ const ShopGrid = () => {
 		</div>
 		<div className="row3">
 		<img alt="two people at an angle" key="product-img-10" src={Ten}></img>
-			<img alt="woman at an angle in boyshorts" key="product-img-11" src={Eleven}></img>
+			<img className="vertical" alt="woman at an angle in boyshorts" key="product-img-11" src={Eleven}></img>
 		</div>
 	
 	</div>
