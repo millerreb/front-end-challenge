@@ -11,7 +11,7 @@
   justify-content: center;
 }
 .productGrid .row1, .row2, .row3 {
-  width: 60%;
+  width: 50%;
   border: 1px green solid;
   margin-bottom: 2vh;
 }

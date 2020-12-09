@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductDescription from './ProductDescription';
 import OrderingInfo from './OrderingInfo';
 import ShopGrid from './ShopGrid';
-import { One, Two, Three, Four, Five, Six } from './ImageImport';
+
 
 
 import './../styles/TopSection.css';
@@ -12,26 +12,14 @@ const ProductDetail = (props) => {
 
 	const [zoomed, setZoomed] = useState(false);
 	const [current, setCurrent] = useState();
-	
+	const [imgIndex, setImgIndex] = useState([]);
 	const productImages = Object.values(props.images);
-
-
 
 	const zoom = (e) => {
     setZoomed(!zoomed);
 		setCurrent(e.target);
 	}
-	
-	
-	// useEffect(() => {
-	// 	if (zoomed) {
-	// 		productImages.forEach(el=> {
-	// 			if (!el === current) {
-					
-	// 			}
-	// 		})
-	// 	}
-	// })
+
 	const imgMap = productImages.map((img, i) => {
 		return <img 
 		src={img}
@@ -44,13 +32,13 @@ const ProductDetail = (props) => {
 
 			return (
 					<div>
-						<div className="topSection">
-							<div className="product-container">{!zoomed && imgMap}</div>
-							{!zoomed && <ProductDescription />}
+						<div className={`topSection ${zoomed ? "zoomed" : ""}`}>
+						{!zoomed && <ProductDescription />}
+							<div className={`product-container ${zoomed ? "zoomed" : ""}`}>{imgMap}</div>
 							{!zoomed && <OrderingInfo />}
 					</div>
 					<div className="bottomSection">
-						{/* {!zoomed && <ShopGrid />} */}
+						<ShopGrid />
 					</div>	
 				</div>
 			)	

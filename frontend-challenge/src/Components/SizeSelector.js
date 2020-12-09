@@ -3,13 +3,19 @@ import icon from '../assets/chevron-down-solid.svg';
 import '../styles/TopSection.css';
 
 class SizeSelector extends React.Component {
+
 	constructor(props) {
 		super(props)
-		this.state = {isOpen: false, sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl']}
+		this.state = {
+			isOpen: false, 
+			sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
+			selection: ['size']
+		}
 	}
 	handleClickOutside() {
 		this.setState({isOpen: false})
 	}
+
 	toggleMenu = () => {
 		this.setState(prevState => ({
 			isOpen: !prevState.isOpen
@@ -31,13 +37,16 @@ class SizeSelector extends React.Component {
 		const { isOpen, sizes } = this.state;
 		const showClassName = isOpen ? 'open' : 'closed';
 		return (
-			<div className="menuWrapper" onKeyDown={this.escapeMenu}>
-					<button className={`sizeSelector-${showClassName}`} onClick={this.toggleMenu}>size
-						{!isOpen && <img id="dropdown" src={icon} alt="chevron-down-solid-arrow"></img>}
-					</button>
-					{isOpen && <ul className="sizeList" onClick={this.toggleMenu}>
+			<div className="menuWrapper">
+					{!isOpen && <button className={`sizeSelector-${showClassName}`} onClick={this.toggleMenu}>{this.state.selection}
+						 <img id="dropdown" src={icon} alt="chevron-down-solid-arrow"></img>
+					</button>}
+
+					{isOpen && <ul className="sizeList" onClick={this.toggleMenu} onKeyDown={this.escapeMenu}>
 						{sizes.map((size, i) => (
-							<li className="sizeOption" key={`size-${size}`}>{size}</li>
+							<button> 
+								<li className="sizeOption" key={`size-${size}`}>{size}</li>
+							</button>
 						))}	
 					</ul>}
 			</div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import SizeSelector from './SizeSelector';
 import '../styles/TopSection.css'
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 
 const OrderingInfo = (props) => {
 
