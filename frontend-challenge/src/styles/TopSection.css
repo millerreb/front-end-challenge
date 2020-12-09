@@ -5,7 +5,7 @@ body, button {
 .topSection {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
   border: 1px solid red;
   background-color: #faf8f8;
@@ -44,13 +44,12 @@ body, button {
 }
 
 .description {
-  /* border: 1px solid purple; */
-  width: 20%;
-  min-width: 200px;
+  border: 1px solid purple;
+  width: 30%;
+  min-width: 250px;
   top: 50%;
   padding-left: 5em;
   text-align: left;
-  z-index: 3;
 }
 .description p {
   line-height: 2.1em;
@@ -64,7 +63,7 @@ body, button {
 
 .orderingInfo {
   width: 20%;
-  min-width: 300px;
+  min-width: 250px;
   top: 50%;
   padding-right: 5em;
   /* float: right; */
@@ -188,3 +187,39 @@ body, button {
 .sizeList li:hover {
   background-color: #faf8f8;
 }
+@media only screen and (max-device-width: 480px) {
+  .topSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-container {
+    order: 1;
+    width: 100%;
+  }
+  .product-image {
+    max-width: 100%;
+  }
+  .description {
+    order: 2;
+    width: 70%;
+    padding: 0;
+    margin: 2vh;
+    font-size: .9em;
+
+  }
+  .description h5, p {
+    /* padding-left: 6vh;
+    padding-right: 6vh; */
+    font-size: .9em;
+  }
+  .orderingInfo {
+    order: 3;
+    width: 70%;
+    padding: 0;
+    margin: 2vh;
+    
+  }
+
+  }
