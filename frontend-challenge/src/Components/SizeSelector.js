@@ -1,53 +1,50 @@
-import React, { useState, useRef, useEffect, useCallback }from 'react';
+import React from 'react';
 import icon from '../assets/chevron-down-solid.svg';
 import '../styles/TopSection.css';
-import SizeMenu from './SizeMenu';
 
-const SizeSelector = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	const menuRef = useRef(null);
-
-	const toggleMenu = () => {
-		setIsOpen(!isOpen);
+class SizeSelector extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {isOpen: false, sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl']}
 	}
-	const escapeMenu = useCallback(
-    (e) => {
+	handleClickOutside() {
+		this.setState({isOpen: false})
+	}
+	toggleMenu = () => {
+		this.setState(prevState => ({
+			isOpen: !prevState.isOpen
+		}))
+	}
+
+	escapeMenu = (e) => {
       if (e.key === 'Escape') {
-        setIsOpen(false);
+        this.setState({isOpen: false})
       }
-    },
-    [setIsOpen]
-	);
-
-	const clickMe = (e) => {
-		console.log(e.target.className)
-		if (e.target.className === 'open') setIsOpen(false);
 	}
 
-	useEffect(() => {
-    if (isOpen) {
-      document.addEventListener('click', clickMe);
-      document.addEventListener('keyup', escapeMenu);
-    } else {
-      document.removeEventListener('click', clickMe);
-      document.removeEventListener('keyup', escapeMenu);
-    }
-    return () => {
-      document.removeEventListener('click', clickMe);
-      document.removeEventListener('keyup', escapeMenu);
-    };
-	}, [isOpen, escapeMenu]);
-	
-	const showClassName = isOpen ? 'open' : 'closed';
+	clickMe = (e) => {
+		console.log(e.target.className)
+		if (e.target.className === 'open') this.setState({isOpen: false});
+	}
 
+	render () {
+		const { isOpen, sizes } = this.state;
+		const showClassName = isOpen ? 'open' : 'closed';
 		return (
-			<div>
-				<button className={`sizeSelector-${showClassName}`} onClick={toggleMenu} ref={menuRef}>size
-					{!isOpen && <img id="dropdown" src={icon} alt="chevron-down-solid-arrow"></img>}
-					{isOpen && <SizeMenu />}
-				</button>
+			<div className="menuWrapper">
+					<button className={`sizeSelector-${showClassName}`} onClick={this.toggleMenu}>size
+						{!isOpen && <img id="dropdown" src={icon} alt="chevron-down-solid-arrow"></img>}
+					</button>
+					{isOpen && <ul className="sizeList" onClick={this.toggleMenu}>
+						{sizes.map((size, i) => (
+							<li className="sizeOption" key={`size-${size}`}>{size}</li>
+						))}	
+					</ul>}
 			</div>
 		)
+	}
+	
 }
+
 
 export default SizeSelector;

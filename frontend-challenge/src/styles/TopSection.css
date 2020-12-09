@@ -148,3 +148,19 @@ body, button {
   height: 10px;
   width: 10px;
 }
+
+.sizeList {
+  background-color: white;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  list-style: none;
+  border: 1px black solid;
+}
+
+.sizeList li {
+  padding: 1em;
+  margin-left: 5%;
+}
+
