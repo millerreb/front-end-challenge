@@ -31,7 +31,7 @@ class SizeSelector extends React.Component {
 		const { isOpen, sizes } = this.state;
 		const showClassName = isOpen ? 'open' : 'closed';
 		return (
-			<div className="menuWrapper">
+			<div className="menuWrapper" onKeyDown={this.escapeMenu}>
 					<button className={`sizeSelector-${showClassName}`} onClick={this.toggleMenu}>size
 						{!isOpen && <img id="dropdown" src={icon} alt="chevron-down-solid-arrow"></img>}
 					</button>
