@@ -179,12 +179,12 @@ body, button {
   border: 1px black solid;
   
 }
-.sizeList button {
+.sizeList li {
   font-family: inherit;
   background-color: white;
   border: none;
   padding: 1em;
 }
-.sizeList button:hover {
+.sizeList li:hover {
   background-color: #faf8f8;
 }

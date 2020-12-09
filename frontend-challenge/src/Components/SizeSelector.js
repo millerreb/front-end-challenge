@@ -22,15 +22,13 @@ class SizeSelector extends React.Component {
 		}))
 	}
 
-	escapeMenu = (e) => {
-      if (e.key === 'Escape') {
-        this.setState({isOpen: false})
-      }
-	}
-
 	clickMe = (e) => {
 		console.log(e.target.className)
 		if (e.target.className === 'open') this.setState({isOpen: false});
+	}
+
+	changeSize = (e) => {
+		this.setState({selection: e.target.id})
 	}
 
 	render () {
@@ -42,11 +40,9 @@ class SizeSelector extends React.Component {
 						 <img id="dropdown" src={icon} alt="chevron-down-solid-arrow"></img>
 					</button>}
 
-					{isOpen && <ul className="sizeList" onClick={this.toggleMenu} onKeyDown={this.escapeMenu}>
-						{sizes.map((size, i) => (
-							<button> 
-								<li className="sizeOption" key={`size-${size}`}>{size}</li>
-							</button>
+					{isOpen && <ul className="sizeList" onClick={this.toggleMenu}>
+						{sizes.map((size, i) => ( 
+								<li className="sizeOption" id={size} key={`size-${size}`} onClick={this.changeSize}>{size}</li>
 						))}	
 					</ul>}
 			</div>
