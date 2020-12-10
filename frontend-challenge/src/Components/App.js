@@ -1,15 +1,17 @@
 import React from 'react';
 import ProductDetail from './ProductDetail';
-import { One, Two, Three, Four, Five, Six } from './ImageImport';
+import { One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Eleven } from './ImageImport';
 
 class App extends React.Component {
 	
-	state = { images: { One, Two, Three, Four, Five, Six } };
+	state = { 
+		topImages: { One, Two, Three, Four, Five, Six }
+};
 	
 	render(){
 		return(
 			<div>
-				<ProductDetail images={this.state.images}/>
+				<ProductDetail topImages={this.state.topImages}/>
 			</div>
 		)
 	}

@@ -1,6 +1,5 @@
 .bottomSection {
   position: relative;
-  z-index: 2;
 }
 .productGrid {
   border: 1px solid orange;
@@ -8,24 +7,33 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
+
 .productGrid .row1, .row2, .row3 {
   width: 60%;
   border: 1px green solid;
   margin-bottom: 2vh;
   padding: 2vh;
+  display: flex;
+  justify-content: center;
+
+}
+.productGrid h5 {
+  font-size: 1.3em;
+  text-decoration: underline;
+  margin-bottom: 0;
+}
+.productGrid p {
+  margin-top: 1.5em;
+  margin-bottom: 2vh;
+  font-size: .9em;
 }
 
-.productGrid img {
-  max-height: 500px;
-  max-width: 45%;
-  margin: 3vh;
-}
-.productGrid .vertical {
+/* .productGrid .vertical {
   max-width: 30%;
-}
-.productGrid .row1 {
+} */
+/* .productGrid .row1 {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-evenly;
@@ -40,7 +48,25 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+} */
+
+.article {
+  padding-top: 2vh;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.horizontal {
+  max-width: 70%;
+}
+
+.vertical {
+  max-width: 60%;
+}
+
 @media only screen and (max-device-width: 480px) {
   .productGrid .row1, .row2, .row3 {
     width: 100%;
@@ -54,7 +80,5 @@
     max-width: 70%;
     margin: 3vh;
   }
-  .productGrid .vertical {
-    max-width: 70%;
-  }
+  
 }

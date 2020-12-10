@@ -13,7 +13,7 @@ const ProductDetail = (props) => {
 	const [zoomed, setZoomed] = useState(false);
 	const [current, setCurrent] = useState();
 	const [imgIndex, setImgIndex] = useState([]);
-	const productImages = Object.values(props.images);
+	const productImages = Object.values(props.topImages);
 
 	const zoom = (e) => {
     setZoomed(!zoomed);
