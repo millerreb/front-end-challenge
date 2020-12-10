@@ -6,6 +6,13 @@ import Caption from './Caption';
 
 
 const ShopGrid = () => {
+//Component can be optimized to be more reusable: ideally would iterate through rows and 
+//change className depending on whether the row number was divisible by 2.
+//(odd numbered rows seem two have 2 images, vertical and horizontal; even numbered rows 
+//just have 1 horizontal => different styling rules.) Could be accomplished w/mod operator 
+//and checking i + 1 in for loop or another index/loop setup).
+
+//Please excuse the brute force approach - I am trying to submit on time! 
 
 	return (
 		<div className="productGrid">
@@ -37,42 +44,6 @@ const ShopGrid = () => {
 			</section>
 		</div>
 	)	
-
-	// <div className="productGrid">
-	// 	<div className="row1">
-	// 		<img alt="two people holding each other in hiphuggers" key="product-img-8" src={Eight}></img>
-	// 			<div className="productLink">
-	// 				<h4>Shop Hiphugger</h4>
-	// 				<p>heavy days</p>
-	// 			</div>
-	// 		<img className="vertical" alt="woman in orange background wearing cheeky" key="product-img-7" src={Seven}></img>
-	// 			<div className="productLink">
-	// 				<h4>Shop Cheeky</h4>
-	// 				<p>light days</p>
-	// 			</div>
-	// 	</div>
-	{/* // 	<div className="row2">
-	// 		<img alt="two women wearing thong" key="product-img-9" src={Nine}></img>
-	// 			<div className="productLink">
-	// 				<h4>Shop Thong</h4>
-	// 				<p>lightest days</p>
-	// 			</div>
-	// 	</div>
-	// 	<div className="row3">
-	// 		<img alt="two people at an angle" key="product-img-10" src={Ten}></img>
-	// 			<div className="productLink">
-	// 				<h4>Shop Sport</h4>
-	// 				<p>medium days</p>	
-	// 			</div>
-				
-	// 		<img className="vertical" alt="woman at an angle in boyshorts" key="product-img-11" src={Eleven}></img>
-	// 		<div className="productLink">
-	// 			<h4>Shop Boyshort</h4>
-	// 			<p>light days</p>
-	// 		</div>
-	// 	</div>
-	// </div> */}
-	
 }
 
 export default ShopGrid;

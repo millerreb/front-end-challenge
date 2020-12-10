@@ -5,12 +5,16 @@ import { useState, useRef } from 'react';
 
 const OrderingInfo = (props) => {
 
+	//used to increment/decrement quantity selection.
 	const [qty, setQty] = useState(1);
+	
+	//used to conditionally render checkmark based on color choice,
+	//to mimic functionality of radio buttons.
 	const [color, setColor] = useState("black");
 	const colorBlack = useRef(null);
 	const colorBeige = useRef(null);
 
-	//functions for changing quantity counter
+	//functions for changing quantity counter.
 	const increment = () => setQty(prevQty => prevQty + 1)
 	const decrement = () => {
 		if (qty > 1) setQty(prevQty => prevQty - 1);
@@ -29,15 +33,16 @@ const OrderingInfo = (props) => {
 			setColor("black");
 		}
 	}
+	//checkmark character code.
 	const char = "\u2714";
 
 	return (
-		<div className="orderingInfo">
+		<section className="orderingInfo">
 			<div id="price">$35.00</div>
-			<div className="btnGroup">
-				<button className="colorOption" style={{outline: 'none'}}>color</button>
-				<button className="colorOption" id="black" ref={colorBlack} onClick={toggleColor}>{color === 'black'? `black ${char}` : 'black' }</button>
-				<button className="colorOption" id="beige" ref={colorBeige} onClick={toggleColor}>{color === 'beige'? `beige ${char}` : 'beige' }</button>
+				<div className="btnGroup">
+					<button className="colorOption" style={{outline: 'none'}}>color</button>
+					<button className="colorOption" id="black" ref={colorBlack} onClick={toggleColor}>{color === 'black'? `black ${char}` : 'black' }</button>
+					<button className="colorOption" id="beige" ref={colorBeige} onClick={toggleColor}>{color === 'beige'? `beige ${char}` : 'beige' }</button>
 				</div>
 				<div className="orderQty">
 					<button onClick={decrement}>-</button>
@@ -47,7 +52,7 @@ const OrderingInfo = (props) => {
 				<SizeSelector title="size" />
 				<button id="cart">add to cart</button>
 				<p>build a cycle set and save up to 20%</p>
-		</div>
+		</section>
 	)
 }
 
